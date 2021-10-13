@@ -1,5 +1,6 @@
 /**
  * Represents square with numbers in the corners
+ *
  * @param leftUp number in left upper corner
  * @param rightUp number in right upper corner
  * @param leftDown number in left lower corner
@@ -12,6 +13,10 @@ case class Square(leftUp: Int, rightUp: Int, leftDown: Int, rightDown: Int) {
 
   def getLowerLine: String = {
     leftDown + " " + rightDown
+  }
+
+  override def toString: String = {
+    s"$leftUp $rightUp $leftDown $rightDown"
   }
 }
 
@@ -52,6 +57,7 @@ object MagicSquares {
 
   /**
    * Prints all solutions for magic squares separated by an empty line
+   *
    * @param squares squares to be placed on the board
    */
   def printSolutions(squares: Vector[Square]): Unit = {
@@ -63,6 +69,7 @@ object MagicSquares {
 
   /**
    * Places squares on the board and prints the result
+   *
    * @param board board
    * @param freeBoardIds indexes of free board cells
    * @param freeIds indexes of unused squares
@@ -83,6 +90,7 @@ object MagicSquares {
 
   /**
    * Validates a single square
+   *
    * @param square square to validate
    * @return whether square is valid
    */
@@ -93,6 +101,7 @@ object MagicSquares {
 
   /**
    * Validates two squares to be placed horizontally
+   *
    * @param square1 left square
    * @param square2 right square
    * @return whether squares are valid
@@ -105,6 +114,7 @@ object MagicSquares {
 
   /**
    * Validates two squares to be placed vertically
+   *
    * @param square1 upper square
    * @param square2 lower square
    * @return whether squares are valid
@@ -117,6 +127,7 @@ object MagicSquares {
 
   /**
    * Validates four squares to be placed in the form of a square
+   *
    * @param square1 left upper square
    * @param square2 right upper square
    * @param square3 left lower square
@@ -132,6 +143,7 @@ object MagicSquares {
   /**
    * Validates joining squares in the form of a triangle
    * One of squares is neutral
+   *
    * @param square1 left upper square
    * @param square2 right upper square
    * @param square3 left lower square
@@ -157,5 +169,9 @@ object MagicSquares {
     printBoardLine(board(6), board(7), board(8), board(9))
     printBoardLine(board(10), board(11))
     println()
+  }
+
+  private def printBoardAsSequence(board: Map[Int, Square]): Unit = {
+    (0 until 12).foreach(id => println(board(id).toString))
   }
 }
