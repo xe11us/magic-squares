@@ -55,7 +55,7 @@ object MagicSquares {
    * @param squares squares to be placed on the board
    */
   def printSolutions(squares: Vector[Square]): Unit = {
-    val freeBoardIds: List[Int] = List(3, 4, 7, 8, 0, 1, 2, 6, 5, 9, 10, 11)
+    val freeBoardIds: Vector[Int] = Vector(3, 4, 7, 8, 0, 1, 2, 6, 5, 9, 10, 11)
     val freeIds: Set[Int] = (0 until 12).toSet
     val board: Map[Int, Square] = Map()
     assignSquares(board, freeBoardIds, freeIds, squares)
@@ -68,7 +68,7 @@ object MagicSquares {
    * @param freeIds indexes of unused squares
    * @param squares squares
    */
-  private def assignSquares(board: Map[Int, Square], freeBoardIds: List[Int], freeIds: Set[Int],
+  private def assignSquares(board: Map[Int, Square], freeBoardIds: Vector[Int], freeIds: Set[Int],
                     squares: Vector[Square]): Unit = freeBoardIds match {
     case boardId +: boardIds =>
       for (
