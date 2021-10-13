@@ -85,7 +85,7 @@ object MagicSquares {
       ) {
         assignSquares(newBoard, boardIds, freeIds - id, squares)
       }
-    case _ => printBoard(board)
+    case _ => printBoardAsSequence(board)
   }
 
   /**
